@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'tv/css/styles.css' %}">
+    <link rel="stylesheet" href="{% static 'tv/css/bootstrap.css' %}">
+    <title>Edit Show</title>
+</head>
+<body>
+    <div class="container">
+        <div class="form-group narrow-form">
+            <form action="/shows/{{ show.id }}/update" method='POST'>
+                {% csrf_token %} 
+                <div class="align-right">
+                    <a href="/shows" class="to-right">Home</a>
+                </div>
+                <h1>Edit Show {{ show.id }}</h1>
+                {% for e in error_msgs %}
+                    <p class="error-text">{{ e }}</p>
+                {% endfor %}
+                <label for="title">Title:</label>
+                <input type="text" class="form-control" name="title" value="{{ show.title }}">
+                <div class="side-by-side">
+                    <label for="network">Network:</label>
+                    <input type="text" class="form-control" name="network" value="{{ show.network }}">
+                </div>
+                <div class="side-by-side">
+                    <label for="rel_date">Release Date:</label>
+                    <input type="date" class="form-control" name="rel_date" value="{{ time }}">
+                </div>
+                <label for="desc">Description:</label>
+                <textarea class="form-control" name="desc" id="desc">{{ show.description }}</textarea>
+                <div class="form-center">
+                    <input type="submit" value="Update" class="shadow-btn">
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
