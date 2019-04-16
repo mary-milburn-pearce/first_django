@@ -18,21 +18,21 @@
                     <a href="/shows" class="to-right">Home</a>
                 </div>
                 <h1>Add a New Show</h1>
-                {% for e in error_msgs %}
-                    <p class="error-text">{{ e }}</p>
+                {% for msg in messages %}
+                    <p class="error-text">{{ msg }}</p>
                 {% endfor %}
                 <label for="title">Title:</label>
-                <input type="text" class="form-control" name="title">
+                <input type="text" class="form-control" name="title" value="{{ show.title }}">
                 <div class="side-by-side">
                     <label for="network">Network:</label>
-                    <input type="text" class="form-control" name="network">
+                    <input type="text" class="form-control" name="network" value="{{ show.network }}">
                 </div>
                 <div class="side-by-side">
                     <label for="rel_date">Release Date:</label>
-                    <input type="date" class="form-control" name="rel_date">
+                    <input type="date" class="form-control" name="rel_date" value="{{ time }}">
                 </div>
                 <label for="desc">Description:</label>
-                <textarea class="form-control" name="desc" id="desc"></textarea>
+                <textarea class="form-control" name="desc" id="desc">{{ show.description }}</textarea>
                 <div class="form-center">
                     <input type="submit" value="Create" class="shadow-btn">
                 </div>

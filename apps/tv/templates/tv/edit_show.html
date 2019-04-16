@@ -18,8 +18,8 @@
                     <a href="/shows" class="to-right">Home</a>
                 </div>
                 <h1>Edit Show {{ show.id }}</h1>
-                {% for e in error_msgs %}
-                    <p class="error-text">{{ e }}</p>
+                {% for msg in messages %}
+                    <p class="error-text">{{ msg }}</p>
                 {% endfor %}
                 <label for="title">Title:</label>
                 <input type="text" class="form-control" name="title" value="{{ show.title }}">
